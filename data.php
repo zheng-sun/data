@@ -50,7 +50,7 @@ if( isset($_FILES['file']) ) {
 
 
 // 获取列表信息
-if($_GET['action'] == 'list') {
+if( isset($_GET['action']) && $_GET['action'] == 'list') {
 	// 获取信息
 	$sql = "select * from project";
 	$list = $DB->query($sql);
@@ -61,7 +61,7 @@ if($_GET['action'] == 'list') {
 }
 
 // 搜索数据
-if( $_GET['action'] == 'search' ) {
+if( isset($_GET['action']) && $_GET['action'] == 'search' ) {
 	// 获取信息
 	$search_project = $_GET['search_project'];
 	$search_name = $_GET['search_name'];
@@ -121,6 +121,7 @@ if( $_GET['action'] == 'search' ) {
 			<th>职业</th>
 			<th>类别</th>
 		</thead>
+		<?php isset($list) {?>
 		<?php foreach( $list->rows as $key=>$value) {?>
 			<tr>
 				<td><?php echo $value['id'];?></td>
@@ -132,7 +133,7 @@ if( $_GET['action'] == 'search' ) {
 				<td><?php echo $value['name']?></td>
 				<td><?php echo $value['type']?></td>
 			</tr>
-		<?php } ?>
+		<?php } } ?>
 	</table>
 
 </body>
