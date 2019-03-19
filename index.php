@@ -5,7 +5,7 @@ ini_set('memory_limit','3072M');
 require_once('Import.php');
 require_once('DB.php');
 
-$DB = new DB('127.0.0.1', 'root', 'root', 'insurance');
+$DB = new DB('127.0.0.1', 'root', '', 'insurance');
 
 if( isset($_FILES['file']) ) {
 	
