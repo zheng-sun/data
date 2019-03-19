@@ -48,6 +48,7 @@ if( isset($_FILES['file']) ) {
 	echo "<script>location.href='?action=list';</script>";
 }
 
+$_GET['action'] = isset($_GET['action'])?$_GET['action']:'list';
 
 // 获取列表信息
 if( isset($_GET['action']) && $_GET['action'] == 'list') {
@@ -90,7 +91,7 @@ if( isset($_GET['action']) && $_GET['action'] == 'search' ) {
 	<title></title>
 </head>
 
-<body>
+<body style="font-size: 12px;">
 	<form method="post" enctype="multipart/form-data">
 		<input type="file" name="file">
 		<input type="submit" name="提交">
