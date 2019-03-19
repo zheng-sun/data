@@ -102,7 +102,11 @@ if( isset($_GET['action']) && $_GET['action'] == 'search' ) {
 		<select name="search_project">
 			<option value="">全部项目</option>
 			<?php foreach( $project->rows as $p) {?>
-			<option value="<?php echo $p['project']?>"><?php echo $p['project']?></option>
+			<option value="<?php echo $p['project']?>" 
+				<?php if( isset($search_project) && $search_project != '' && $search_project == $p['project'] ) { echo 'selected';}?>
+				>
+				<?php echo $p['project']?>
+			</option>
 			<?php } ?>
 		</select>
 		<label>职业：</label>
@@ -121,7 +125,7 @@ if( isset($_GET['action']) && $_GET['action'] == 'search' ) {
 			<th>职业</th>
 			<th>类别</th>
 		</thead>
-		<?php isset($list) {?>
+		<?php if(isset($list)) {?>
 		<?php foreach( $list->rows as $key=>$value) {?>
 			<tr>
 				<td><?php echo $value['id'];?></td>
